@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceability - GreenStem</title>
+    <meta name="description" content="Every GreenStem product is traceable to its origin—from the farmer who grew it to the day it was packed. Scan QR codes to view farm locations, carbon scores, and farmer profiles.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="GreenStem Logo" style="height: 32px;">
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="traceability.html" class="nav-link active">Traceability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="buyers.html" class="nav-link">Buyers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sustainability.html" class="nav-link">Sustainability</a>
+                        </li>
+                    </ul>
+                    <a href="invest.html" class="btn btn-primary">Investors</a>
+                </div>
+                
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">You Deserve to Know Where It Came From</h1>
+                <p class="page-subtitle">Every GreenStem product is traceable to its origin—from the farmer who grew it to the day it was packed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Traceability Demo Section -->
+            <section class="content-section">
+                <div class="traceability-demo">
+                    <div class="demo-content">
+                        <h2 class="section-title">Test Our Traceability System</h2>
+                        <p class="section-text">
+                            Scan the QR code below to see how our traceability system works. This is a sample from our French Bean harvest in Uasin Gishu County.
+                        </p>
+                        <div class="qr-demo-container">
+                            <div class="qr-code-display">
+                                <div class="qr-placeholder">
+                                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="120" height="120" fill="#1a1a1a"/>
+                                        <rect x="10" y="10" width="20" height="20" fill="white"/>
+                                        <rect x="50" y="10" width="20" height="20" fill="white"/>
+                                        <rect x="90" y="10" width="20" height="20" fill="white"/>
+                                        <rect x="10" y="50" width="20" height="20" fill="white"/>
+                                        <rect x="30" y="50" width="20" height="20" fill="white"/>
+                                        <rect x="70" y="50" width="20" height="20" fill="white"/>
+                                        <rect x="90" y="50" width="20" height="20" fill="white"/>
+                                        <rect x="10" y="90" width="20" height="20" fill="white"/>
+                                        <rect x="50" y="90" width="20" height="20" fill="white"/>
+                                        <rect x="90" y="90" width="20" height="20" fill="white"/>
+                                    </svg>
+                                </div>
+                                <p class="qr-label">Sample QR Code - French Beans</p>
+                            </div>
+                            <button class="btn btn-primary qr-test-btn" onclick="showTraceabilityInfo()">View Sample Data</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Traceability Elements Section -->
+            <section class="content-section">
+                <h2 class="section-title centered">Complete Transparency</h2>
+                <div class="traceability-features">
+                    <div class="trace-feature">
+                        <div class="trace-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="8" width="32" height="32" rx="4" stroke="#22c55e" stroke-width="3" fill="none"/>
+                                <rect x="14" y="14" width="4" height="4" fill="#22c55e"/>
+                                <rect x="22" y="14" width="4" height="4" fill="#22c55e"/>
+                                <rect x="30" y="14" width="4" height="4" fill="#22c55e"/>
+                                <rect x="14" y="22" width="4" height="4" fill="#22c55e"/>
+                                <rect x="30" y="22" width="4" height="4" fill="#22c55e"/>
+                                <rect x="14" y="30" width="4" height="4" fill="#22c55e"/>
+                                <rect x="22" y="30" width="4" height="4" fill="#22c55e"/>
+                                <rect x="30" y="30" width="4" height="4" fill="#22c55e"/>
+                            </svg>
+                        </div>
+                        <h3 class="trace-title">QR Code System</h3>
+                        <p class="trace-description">
+                            Scan to view farm location, crop variety, soil profile, and harvest log. Every package tells its complete story.
+                        </p>
+                        <div class="trace-details">
+                            <span class="detail-item">📍 GPS Coordinates</span>
+                            <span class="detail-item">📊 Soil Analysis</span>
+                            <span class="detail-item">🌱 Seed Variety</span>
+                            <span class="detail-item">📅 Harvest Date</span>
+                        </div>
+                    </div>
+
+                    <div class="trace-feature">
+                        <div class="trace-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="18" stroke="#22c55e" stroke-width="3" fill="none"/>
+                                <path d="M16 24L20 28L32 16" stroke="#22c55e" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3 class="trace-title">Carbon Score</h3>
+                        <p class="trace-description">
+                            Every product includes its CO₂ offset value and regenerative practices used. See the environmental impact of your purchase.
+                        </p>
+                        <div class="trace-details">
+                            <span class="detail-item">🌍 Carbon Footprint</span>
+                            <span class="detail-item">🌳 Trees Planted</span>
+                            <span class="detail-item">♻️ Regenerative Practices</span>
+                            <span class="detail-item">⚡ Renewable Energy</span>
+                        </div>
+                    </div>
+
+                    <div class="trace-feature">
+                        <div class="trace-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="16" r="8" stroke="#22c55e" stroke-width="3" fill="none"/>
+                                <path d="M12 36C12 28 17 24 24 24C31 24 36 28 36 36" stroke="#22c55e" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3 class="trace-title">Farmer Profile</h3>
+                        <p class="trace-description">
+                            See the name, region, and training level of the farmer or cooperative. Connect with the people behind your food.
+                        </p>
+                        <div class="trace-details">
+                            <span class="detail-item">👤 Farmer Name</span>
+                            <span class="detail-item">📍 Farm Location</span>
+                            <span class="detail-item">🎓 Certifications</span>
+                            <span class="detail-item">📈 Farm Size</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sample Traceability Information (Hidden by default) -->
+            <section class="content-section trace-info-section" id="traceabilityInfo" style="display: none;">
+                <div class="trace-info-card">
+                    <div class="trace-info-header">
+                        <h3>Traceability Information</h3>
+                        <button class="close-btn" onclick="hideTraceabilityInfo()">×</button>
+                    </div>
+                    <div class="trace-info-content">
+                        <div class="trace-info-grid">
+                            <div class="info-section">
+                                <h4>Product Details</h4>
+                                <div class="info-item">
+                                    <span class="info-label">Product:</span>
+                                    <span class="info-value">French Beans</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Variety:</span>
+                                    <span class="info-value">Kenya Fine Bean</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Harvest Date:</span>
+                                    <span class="info-value">March 15, 2024</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Package Date:</span>
+                                    <span class="info-value">March 16, 2024</span>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h4>Farm Information</h4>
+                                <div class="info-item">
+                                    <span class="info-label">Location:</span>
+                                    <span class="info-value">Uasin Gishu County, Kenya</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">GPS:</span>
+                                    <span class="info-value">0.5143°N, 35.2697°E</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Altitude:</span>
+                                    <span class="info-value">2,100m above sea level</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Soil pH:</span>
+                                    <span class="info-value">6.2 (Optimal)</span>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h4>Farmer Profile</h4>
+                                <div class="info-item">
+                                    <span class="info-label">Farmer:</span>
+                                    <span class="info-value">Mary Kipchoge</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Cooperative:</span>
+                                    <span class="info-value">Uasin Gishu Women Farmers</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Experience:</span>
+                                    <span class="info-value">8 years</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Certifications:</span>
+                                    <span class="info-value">GlobalG.A.P, Organic</span>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h4>Environmental Impact</h4>
+                                <div class="info-item">
+                                    <span class="info-label">Carbon Score:</span>
+                                    <span class="info-value">-0.8 kg CO₂ (Carbon Negative)</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Water Usage:</span>
+                                    <span class="info-value">15L per kg (40% below average)</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Trees Planted:</span>
+                                    <span class="info-value">2 trees per 100kg harvest</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Energy Source:</span>
+                                    <span class="info-value">100% Solar Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Benefits Section -->
+            <section class="content-section">
+                <div class="section-grid">
+                    <div class="section-content">
+                        <h2 class="section-title">Why Traceability Matters</h2>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#22c55e"/>
+                                    </svg>
+                                </div>
+                                <div class="benefit-text">
+                                    <strong>Food Safety:</strong> Complete visibility into growing conditions, handling, and processing ensures the highest safety standards.
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#22c55e"/>
+                                    </svg>
+                                </div>
+                                <div class="benefit-text">
+                                    <strong>Quality Assurance:</strong> Every batch is monitored from seed to shelf, ensuring consistent premium quality.
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#22c55e"/>
+                                    </svg>
+                                </div>
+                                <div class="benefit-text">
+                                    <strong>Environmental Impact:</strong> Track the carbon footprint and sustainable practices behind every product.
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#22c55e"/>
+                                    </svg>
+                                </div>
+                                <div class="benefit-text">
+                                    <strong>Farmer Connection:</strong> Build relationships with the farmers and communities growing your food.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-image">
+                        <img src="images/farm-plants.jpg" alt="Traceable farming" class="content-img">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section-page">
+                <div class="cta-content">
+                    <h3 class="cta-title">Experience Full Transparency</h3>
+                    <p class="cta-description">
+                        Join the movement toward complete food transparency. Every GreenStem product comes with full traceability as standard.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="products.html" class="btn btn-primary">View Products</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="GreenStem Logo" style="height: 32px;">
+                </div>
+                <p class="footer-text">
+                    Empowering communities, championing sustainability, and delivering transparency from seed to shelf.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function showTraceabilityInfo() {
+            document.getElementById('traceabilityInfo').style.display = 'block';
+            document.getElementById('traceabilityInfo').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideTraceabilityInfo() {
+            document.getElementById('traceabilityInfo').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

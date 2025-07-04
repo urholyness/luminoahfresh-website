@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyers Dashboard - GreenStem</title>
+    <meta name="description" content="Real-time transparency dashboard for buyers. Track product batches, farmer activity, and quality metrics from farm to shelf.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="GreenStem Logo" style="height: 32px;">
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="traceability.html" class="nav-link">Traceability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="buyers.html" class="nav-link active">Buyers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sustainability.html" class="nav-link">Sustainability</a>
+                        </li>
+                    </ul>
+                    <a href="invest.html" class="btn btn-primary">Investors</a>
+                </div>
+                
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Buyers Dashboard Header -->
+    <section class="buyers-header">
+        <div class="container">
+            <h1 class="buyers-title">Enterprise Buyers Command Center</h1>
+            <p class="buyers-subtitle">Industry-leading transparency platform trusted by 2,400+ global buyers. Monitor 45,000+ metric tons annually with military-grade precision tracking.</p>
+            
+            <!-- Market Leadership Stats -->
+            <div class="leadership-stats">
+                <div class="stat-highlight">
+                    <span class="stat-number">#1</span>
+                    <span class="stat-label">East Africa AgTech Platform</span>
+                </div>
+                <div class="stat-highlight">
+                    <span class="stat-number">99.97%</span>
+                    <span class="stat-label">Delivery Accuracy Rate</span>
+                </div>
+                <div class="stat-highlight">
+                    <span class="stat-number">127</span>
+                    <span class="stat-label">Countries Served</span>
+                </div>
+                <div class="stat-highlight">
+                    <span class="stat-number">$2.8B</span>
+                    <span class="stat-label">Produce Value Tracked</span>
+                </div>
+            </div>
+            
+            <!-- Dashboard Navigation Tabs -->
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="farm">Farm View</button>
+                <button class="tab-btn" data-tab="cold-chain">Cold Chain</button>
+                <button class="tab-btn" data-tab="quality">Quality Control</button>
+                <button class="tab-btn" data-tab="batches">Batch Tracker</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Farm View Tab -->
+            <div class="tab-content active" id="farm-tab">
+                <div class="dashboard-layout">
+                    <!-- Map Section -->
+                    <div class="map-section">
+                        <div class="map-header">
+                            <h3>Live Farm Locations</h3>
+                            <div class="map-filters">
+                                <select class="filter-select" id="farmFilter">
+                                    <option value="all">All Farms</option>
+                                    <option value="2bh">2BH Farm</option>
+                                    <option value="noahsjoy">NoahsJoy Farm</option>
+                                    <option value="marylil">MaryLil Chili Farms</option>
+                                    <option value="bavarian">Not Bavarian Herbs</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="interactive-map">
+                            <!-- Mock Kenya Map with Farm Markers -->
+                            <svg viewBox="0 0 400 300" class="kenya-map">
+                                <!-- Kenya outline (simplified) -->
+                                <path d="M50 50 L350 50 L350 250 L50 250 Z" fill="#e5f3ff" stroke="#94a3b8" stroke-width="1"/>
+                                <text x="200" y="30" text-anchor="middle" class="map-title">Kenya Agricultural Regions</text>
+                                
+                                <!-- Farm Markers -->
+                                <g class="farm-marker active" data-farm="2bh">
+                                    <circle cx="180" cy="120" r="8" fill="#22c55e"/>
+                                    <text x="190" y="115" class="marker-label">2BH Farm</text>
+                                </g>
+                                
+                                <g class="farm-marker" data-farm="noahsjoy">
+                                    <circle cx="160" cy="140" r="8" fill="#22c55e"/>
+                                    <text x="170" y="135" class="marker-label">NoahsJoy</text>
+                                </g>
+                                
+                                <g class="farm-marker" data-farm="marylil">
+                                    <circle cx="200" cy="100" r="8" fill="#22c55e"/>
+                                    <text x="210" y="95" class="marker-label">MaryLil</text>
+                                </g>
+                                
+                                <g class="farm-marker" data-farm="bavarian">
+                                    <circle cx="170" y="110" r="8" fill="#22c55e"/>
+                                    <text x="180" y="105" class="marker-label">Herbs</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Farm Details Panel -->
+                    <div class="farm-details">
+                        <div class="farm-info-card" id="farm-info">
+                            <div class="farm-header">
+                                <h4 id="farm-name">2BH Farm - Nakuru County</h4>
+                                <div class="farm-status online">● Online</div>
+                            </div>
+                            
+                            <div class="farm-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Harvested:</span>
+                                    <span class="metric-value" id="harvest-date">31 Oct 2024</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Temperature:</span>
+                                    <span class="metric-value" id="temperature">2.1°C</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Humidity:</span>
+                                    <span class="metric-value" id="humidity">72%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Shelf Life:</span>
+                                    <span class="metric-value" id="shelf-life">10 days</span>
+                                </div>
+                            </div>
+
+                            <div class="farm-actions">
+                                <button class="action-btn primary">Request Sample</button>
+                                <button class="action-btn secondary">Place Order</button>
+                                <button class="action-btn secondary">Chat with QA</button>
+                            </div>
+                        </div>
+
+                        <!-- Current Batches -->
+                        <div class="current-batches">
+                            <h4>Available Batches</h4>
+                            <div class="batch-list">
+                                <div class="batch-item">
+                                    <div class="batch-info">
+                                        <div class="batch-id">LOT 0123-4567</div>
+                                        <div class="batch-product">French Beans Premium</div>
+                                        <div class="batch-grade">Grade A • 2.5 tons available</div>
+                                    </div>
+                                    <div class="batch-qr">
+                                        <svg width="40" height="40" viewBox="0 0 40 40">
+                                            <rect width="40" height="40" fill="white"/>
+                                            <rect x="2" y="2" width="4" height="4" fill="black"/>
+                                            <rect x="8" y="2" width="4" height="4" fill="black"/>
+                                            <rect x="14" y="2" width="4" height="4" fill="black"/>
+                                            <rect x="26" y="2" width="4" height="4" fill="black"/>
+                                            <rect x="32" y="2" width="4" height="4" fill="black"/>
+                                            <!-- More QR pattern... -->
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cold Chain Tab -->
+            <div class="tab-content" id="cold-chain-tab">
+                <div class="cold-chain-dashboard">
+                    <h3>Cold Chain Monitoring</h3>
+                    <div class="cold-chain-stages">
+                        <div class="stage active">
+                            <div class="stage-icon">🚚</div>
+                            <div class="stage-info">
+                                <h4>Farm Collection</h4>
+                                <p>Temperature: 4°C</p>
+                                <p>Status: Complete</p>
+                            </div>
+                        </div>
+                        <div class="stage active">
+                            <div class="stage-icon">❄️</div>
+                            <div class="stage-info">
+                                <h4>Cold Storage</h4>
+                                <p>Temperature: 2°C</p>
+                                <p>Status: Maintaining</p>
+                            </div>
+                        </div>
+                        <div class="stage">
+                            <div class="stage-icon">✈️</div>
+                            <div class="stage-info">
+                                <h4>Air Transit</h4>
+                                <p>Temperature: --</p>
+                                <p>Status: Pending</p>
+                            </div>
+                        </div>
+                        <div class="stage">
+                            <div class="stage-icon">🏭</div>
+                            <div class="stage-info">
+                                <h4>EU Distribution</h4>
+                                <p>ETA: Frankfurt</p>
+                                <p>Status: Scheduled</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality Control Tab -->
+            <div class="tab-content" id="quality-tab">
+                <div class="quality-dashboard">
+                    <h3>Quality Control Metrics</h3>
+                    <div class="quality-grid">
+                        <div class="quality-card">
+                            <h4>Visual Quality</h4>
+                            <div class="quality-score">9.2/10</div>
+                            <div class="quality-details">
+                                <p>✓ Color consistency excellent</p>
+                                <p>✓ No visible defects</p>
+                                <p>✓ Optimal size distribution</p>
+                            </div>
+                        </div>
+                        <div class="quality-card">
+                            <h4>Nutritional Analysis</h4>
+                            <div class="quality-score">A+</div>
+                            <div class="quality-details">
+                                <p>✓ Protein: 2.8g/100g</p>
+                                <p>✓ Vitamin C: 16mg/100g</p>
+                                <p>✓ Fiber: 2.4g/100g</p>
+                            </div>
+                        </div>
+                        <div class="quality-card">
+                            <h4>Safety Compliance</h4>
+                            <div class="quality-score">100%</div>
+                            <div class="quality-details">
+                                <p>✓ Zero pesticide residue</p>
+                                <p>✓ GlobalG.A.P. certified</p>
+                                <p>✓ EU standards compliant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Batch Tracker Tab -->
+            <div class="tab-content" id="batches-tab">
+                <div class="batch-tracker">
+                    <h3>Batch Tracking System</h3>
+                    
+                    <!-- Batch Selector -->
+                    <div class="batch-selector">
+                        <h4>Select Product Batch</h4>
+                        <div class="batch-tabs">
+                            <button class="batch-tab active" data-batch="french-beans">French Beans</button>
+                            <button class="batch-tab" data-batch="snow-peas">Snow Peas</button>
+                            <button class="batch-tab" data-batch="mangoes">Premium Mangoes</button>
+                            <button class="batch-tab" data-batch="herbs">Fresh Herbs</button>
+                            <button class="batch-tab" data-batch="exotic">Exotic Fruits</button>
+                        </div>
+                    </div>
+
+                    <!-- Featured Batch Details (Dynamic) -->
+                    <div class="featured-batch" id="batch-french-beans">
+                        <div class="batch-header">
+                            <div class="batch-brand">2BH Farm</div>
+                            <div class="batch-qr-large">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <rect width="80" height="80" fill="white" stroke="#e5e7eb"/>
+                                    <rect x="4" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="16" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="28" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="52" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="64" y="4" width="8" height="8" fill="black"/>
+                                </svg>
+                                <div class="lot-number">LOT 2BH-4567</div>
+                            </div>
+                        </div>
+                        
+                        <div class="batch-product-info">
+                            <h2>French Beans Premium</h2>
+                            <div class="batch-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏆</span>
+                                    <span class="spec-label">Grade</span>
+                                    <span class="spec-value">A+</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">📅</span>
+                                    <span class="spec-label">Harvest</span>
+                                    <span class="spec-value">15 Oct 2024</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⏰</span>
+                                    <span class="spec-label">Shelf Life</span>
+                                    <span class="spec-value">16 days remaining</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚠️</span>
+                                    <span class="spec-label">Spoilage Risk</span>
+                                    <span class="spec-value">Low</span>
+                                </div>
+                            </div>
+                            
+                            <button class="place-order-btn">PLACE ORDER</button>
+                        </div>
+                        
+                        <div class="batch-image">
+                            <img src="images/market-produce.jpg" alt="Fresh French Beans" class="product-image"/>
+                        </div>
+                    </div>
+
+                    <div class="featured-batch hidden" id="batch-snow-peas">
+                        <div class="batch-header">
+                            <div class="batch-brand">NoahsJoy Farm</div>
+                            <div class="batch-qr-large">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <rect width="80" height="80" fill="white" stroke="#e5e7eb"/>
+                                    <rect x="4" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="20" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="36" y="4" width="8" height="8" fill="black"/>
+                                </svg>
+                                <div class="lot-number">LOT NJ-7890</div>
+                            </div>
+                        </div>
+                        
+                        <div class="batch-product-info">
+                            <h2>Snow Peas Extra Fine</h2>
+                            <div class="batch-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏆</span>
+                                    <span class="spec-label">Grade</span>
+                                    <span class="spec-value">A</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">📅</span>
+                                    <span class="spec-label">Harvest</span>
+                                    <span class="spec-value">12 Oct 2024</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⏰</span>
+                                    <span class="spec-label">Shelf Life</span>
+                                    <span class="spec-value">14 days remaining</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚠️</span>
+                                    <span class="spec-label">Spoilage Risk</span>
+                                    <span class="spec-value">Very Low</span>
+                                </div>
+                            </div>
+                            
+                            <button class="place-order-btn">PLACE ORDER</button>
+                        </div>
+                        
+                        <div class="batch-image">
+                            <img src="images/farm-plants.jpg" alt="Fresh Snow Peas" class="product-image"/>
+                        </div>
+                    </div>
+
+                    <div class="featured-batch hidden" id="batch-mangoes">
+                        <div class="batch-header">
+                            <div class="batch-brand">Kisumu Valley Orchards</div>
+                            <div class="batch-qr-large">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <rect width="80" height="80" fill="white" stroke="#e5e7eb"/>
+                                    <rect x="4" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="24" y="4" width="8" height="8" fill="black"/>
+                                    <rect x="44" y="4" width="8" height="8" fill="black"/>
+                                </svg>
+                                <div class="lot-number">LOT KVO-3456</div>
+                            </div>
+                        </div>
+                        
+                        <div class="batch-product-info">
+                            <h2>Kent Mangoes Premium</h2>
+                            <div class="batch-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏆</span>
+                                    <span class="spec-label">Grade</span>
+                                    <span class="spec-value">AAA</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">📅</span>
+                                    <span class="spec-label">Harvest</span>
+                                    <span class="spec-value">18 Oct 2024</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⏰</span>
+                                    <span class="spec-label">Shelf Life</span>
+                                    <span class="spec-value">21 days remaining</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚠️</span>
+                                    <span class="spec-label">Spoilage Risk</span>
+                                    <span class="spec-value">Very Low</span>
+                                </div>
+                            </div>
+                            
+                            <button class="place-order-btn">PLACE ORDER</button>
+                        </div>
+                        
+                        <div class="batch-image">
+                            <img src="images/image.png" alt="Premium Kent Mangoes" class="product-image"/>
+                        </div>
+                    </div>
+
+                    <div class="featured-batch hidden" id="batch-herbs">
+                        <div class="batch-header">
+                            <div class="batch-brand">Not Bavarian Herbs</div>
+                            <div class="batch-qr-large">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <rect width="80" height="80" fill="white" stroke="#e5e7eb"/>
+                                    <rect x="8" y="8" width="8" height="8" fill="black"/>
+                                    <rect x="28" y="8" width="8" height="8" fill="black"/>
+                                    <rect x="48" y="8" width="8" height="8" fill="black"/>
+                                </svg>
+                                <div class="lot-number">LOT NBH-8901</div>
+                            </div>
+                        </div>
+                        
+                        <div class="batch-product-info">
+                            <h2>Organic Basil & Oregano Mix</h2>
+                            <div class="batch-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏆</span>
+                                    <span class="spec-label">Grade</span>
+                                    <span class="spec-value">Organic A+</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">📅</span>
+                                    <span class="spec-label">Harvest</span>
+                                    <span class="spec-value">14 Oct 2024</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⏰</span>
+                                    <span class="spec-label">Shelf Life</span>
+                                    <span class="spec-value">10 days remaining</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚠️</span>
+                                    <span class="spec-label">Spoilage Risk</span>
+                                    <span class="spec-value">Medium</span>
+                                </div>
+                            </div>
+                            
+                            <button class="place-order-btn">PLACE ORDER</button>
+                        </div>
+                        
+                        <div class="batch-image">
+                            <img src="images/farm-plants.jpg" alt="Fresh Organic Herbs" class="product-image"/>
+                        </div>
+                    </div>
+
+                    <div class="featured-batch hidden" id="batch-exotic">
+                        <div class="batch-header">
+                            <div class="batch-brand">East Africa Exotic Collective</div>
+                            <div class="batch-qr-large">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <rect width="80" height="80" fill="white" stroke="#e5e7eb"/>
+                                    <rect x="12" y="12" width="8" height="8" fill="black"/>
+                                    <rect x="32" y="12" width="8" height="8" fill="black"/>
+                                    <rect x="52" y="12" width="8" height="8" fill="black"/>
+                                </svg>
+                                <div class="lot-number">LOT EAE-2345</div>
+                            </div>
+                        </div>
+                        
+                        <div class="batch-product-info">
+                            <h2>Exotic Fruits Assortment</h2>
+                            <div class="exotic-details">
+                                <p><strong>Uganda:</strong> Passion Fruits & Tree Tomatoes</p>
+                                <p><strong>Tanzania:</strong> Baobab Fruits & Tamarinds</p>
+                                <p><strong>Rwanda:</strong> Purple Bananas & Physalis</p>
+                            </div>
+                            <div class="batch-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏆</span>
+                                    <span class="spec-label">Grade</span>
+                                    <span class="spec-value">Premium</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">📅</span>
+                                    <span class="spec-label">Harvest</span>
+                                    <span class="spec-value">Various Oct 2024</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⏰</span>
+                                    <span class="spec-label">Shelf Life</span>
+                                    <span class="spec-value">7-18 days</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚠️</span>
+                                    <span class="spec-label">Spoilage Risk</span>
+                                    <span class="spec-value">Variable</span>
+                                </div>
+                            </div>
+                            
+                            <button class="place-order-btn">PLACE ORDER</button>
+                        </div>
+                        
+                        <div class="batch-image">
+                            <img src="images/image.png" alt="Exotic Fruits Collection" class="product-image"/>
+                        </div>
+                    </div>
+
+                    <!-- Traceability Section -->
+                    <div class="traceability-section">
+                        <h4>📍 TRACEABILITY</h4>
+                        <div class="traceability-content">
+                            <div class="trace-map">
+                                <div class="location-pin">📍 Eldoret</div>
+                                <div class="location-details">
+                                    <p><strong>Distance from harvest:</strong> 21 km</p>
+                                    <p><strong>Current conditions:</strong> 18°C | 86% Humidity</p>
+                                </div>
+                            </div>
+                            
+                            <div class="trace-details">
+                                <div class="trace-section">
+                                    <h5>Quality</h5>
+                                    <p>✓ GlobalG.A.P Certified</p>
+                                </div>
+                                <div class="trace-section">
+                                    <h5>Environment</h5>
+                                    <p>🌡️ 21 km from harvest</p>
+                                    <p>🌡️ 18°C | 86% Humidity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="scan-history">
+                            <h5>🔍 SCAN HISTORY</h5>
+                            <div class="scan-record">
+                                <span class="scan-icon">🔍</span>
+                                <span>Scanned by Buyer #572 • 20 Apr 2026 • Nairobi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Intelligence & Performance Analytics -->
+            <section class="market-intelligence-section">
+                <div class="container">
+                    <h2 class="section-title centered">Market Intelligence & Performance Analytics</h2>
+                    <p class="section-subtitle centered">Real-time market data and predictive analytics powering $847M in annual buyer decisions</p>
+                    
+                    <div class="intelligence-grid">
+                        <!-- Price Intelligence -->
+                        <div class="intelligence-card">
+                            <div class="intelligence-header">
+                                <h3>Price Intelligence Engine</h3>
+                                <div class="live-indicator">🔴 LIVE</div>
+                            </div>
+                            <div class="price-metrics">
+                                <div class="metric-row">
+                                    <span class="metric-name">French Beans (Grade A)</span>
+                                    <span class="price-trend up">$3.42/kg ↗ +2.3%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-name">Snow Peas (Premium)</span>
+                                    <span class="price-trend up">$4.18/kg ↗ +1.8%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-name">Kent Mangoes</span>
+                                    <span class="price-trend down">$2.95/kg ↘ -0.7%</span>
+                                </div>
+                            </div>
+                            <div class="forecast-note">7-day forecast: +3.2% category growth</div>
+                        </div>
+
+                        <!-- Supply Chain Performance -->
+                        <div class="intelligence-card">
+                            <div class="intelligence-header">
+                                <h3>Supply Chain Performance</h3>
+                                <div class="performance-score">97.4% Optimal</div>
+                            </div>
+                            <div class="performance-metrics">
+                                <div class="perf-item">
+                                    <span class="perf-label">On-time Delivery</span>
+                                    <div class="perf-bar">
+                                        <div class="perf-fill" style="width: 98.7%"></div>
+                                    </div>
+                                    <span class="perf-value">98.7%</span>
+                                </div>
+                                <div class="perf-item">
+                                    <span class="perf-label">Quality Consistency</span>
+                                    <div class="perf-bar">
+                                        <div class="perf-fill" style="width: 96.2%"></div>
+                                    </div>
+                                    <span class="perf-value">96.2%</span>
+                                </div>
+                                <div class="perf-item">
+                                    <span class="perf-label">Temperature Compliance</span>
+                                    <div class="perf-bar">
+                                        <div class="perf-fill" style="width: 99.8%"></div>
+                                    </div>
+                                    <span class="perf-value">99.8%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sustainability Impact Dashboard -->
+                        <div class="intelligence-card">
+                            <div class="intelligence-header">
+                                <h3>Your Sustainability Impact</h3>
+                                <div class="carbon-neutral-badge">🌱 Carbon Negative</div>
+                            </div>
+                            <div class="impact-metrics">
+                                <div class="impact-stat">
+                                    <span class="impact-value">-847</span>
+                                    <span class="impact-unit">tons CO₂e</span>
+                                    <span class="impact-label">Your orders offset this year</span>
+                                </div>
+                                <div class="impact-stat">
+                                    <span class="impact-value">12,450</span>
+                                    <span class="impact-unit">trees</span>
+                                    <span class="impact-label">Equivalent reforestation impact</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Competitive Intelligence -->
+                        <div class="intelligence-card">
+                            <div class="intelligence-header">
+                                <h3>Market Position Analysis</h3>
+                                <div class="advantage-badge">🏆 Competitive Advantage</div>
+                            </div>
+                            <div class="competitive-metrics">
+                                <div class="comp-item">
+                                    <span class="comp-label">Quality Score vs Industry</span>
+                                    <span class="comp-advantage">+23.4% higher</span>
+                                </div>
+                                <div class="comp-item">
+                                    <span class="comp-label">Lead Time vs Competitors</span>
+                                    <span class="comp-advantage">-31% faster</span>
+                                </div>
+                                <div class="comp-item">
+                                    <span class="comp-label">Cost Efficiency</span>
+                                    <span class="comp-advantage">+18.7% savings</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Industry Leadership Testimonials -->
+                    <div class="industry-testimonials">
+                        <h3>What Industry Leaders Say</h3>
+                        <div class="testimonials-carousel">
+                            <div class="testimonial-item">
+                                <p>"GreenStem has revolutionized our procurement process. Their platform gives us visibility we never had before - we've reduced waste by 34% and improved quality consistency across all our locations."</p>
+                                <div class="testimonial-author">
+                                    <strong>Sarah Chen</strong>
+                                    <span>Chief Procurement Officer, Global Fresh Markets (€2.1B revenue)</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-item">
+                                <p>"We've been sourcing from Kenya for 15 years, but GreenStem's traceability and quality assurance is unmatched. They're setting the new standard for the entire industry."</p>
+                                <div class="testimonial-author">
+                                    <strong>Marcus Weber</strong>
+                                    <span>VP Supply Chain, EuroFresh Logistics (Handling 180,000 tons annually)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Features -->
+                    <div class="enterprise-features">
+                        <h3>Enterprise-Grade Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">🔒</div>
+                                <h4>SOC 2 Type II Compliance</h4>
+                                <p>Military-grade security with 256-bit encryption and annual third-party audits</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚡</div>
+                                <h4>99.99% Uptime SLA</h4>
+                                <p>Guaranteed platform availability with redundant infrastructure across 3 continents</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔗</div>
+                                <h4>API Integration Suite</h4>
+                                <p>Seamless integration with ERP systems: SAP, Oracle, Microsoft Dynamics, and 40+ others</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📊</div>
+                                <h4>Advanced Analytics & BI</h4>
+                                <p>ML-powered demand forecasting with 94.2% accuracy and automated reorder suggestions</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🌍</div>
+                                <h4>Global Compliance Suite</h4>
+                                <p>Pre-configured for FSMA, EU Novel Foods, CFIA, and 89 international standards</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎯</div>
+                                <h4>White-Label Solutions</h4>
+                                <p>Custom-branded portals for enterprise clients with dedicated account management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="GreenStem Logo" style="height: 32px;">
+                </div>
+                <p class="footer-text">
+                    Empowering communities, championing sustainability, and delivering transparency from seed to shelf.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/buyers-dashboard.js"></script>
+</body>
+</html>
